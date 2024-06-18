@@ -3,7 +3,7 @@ import api from "../utils/api";
 import Card from "./Card";
 import "../blocks/content.css";
 
-function AppMain({
+function Main({
   onEditAvatarClick,
   onEditProfileClick,
   onAddPlaceClick,
@@ -69,4 +69,4 @@ function AppMain({
   );
 }
 
-export default AppMain;
+export default Main;

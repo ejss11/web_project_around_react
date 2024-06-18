@@ -1,7 +1,7 @@
 import React from "react";
 import "../blocks/popup.css";
 
-function PopupWithImage({ card, isOpen, onClose }) {
+function ImagePopup({ card, isOpen, onClose }) {
   return (
     <div className={`popup popup_image ${isOpen ? "popup_is-opened" : ""}`}>
       <div className="popup__overlay"></div>
@@ -18,4 +18,4 @@ function PopupWithImage({ card, isOpen, onClose }) {
   );
 }
 
-export default PopupWithImage;
+export default ImagePopup;

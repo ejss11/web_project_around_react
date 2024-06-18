@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
 import "./index.css";
 import AppHeader from "./components/AppHeader";
-import AppFooter from "./components/AppFooter";
+import Footer from "./components/Footer";
 import PopupWithForm from "./components/PopupWithForm";
-import PopupWithImage from "./components/PopupWithImage";
-import AppMain from "./components/AppMain";
+import ImagePopup from "./components/ImagePopup";
+import Main from "./components/Main";
 import api from "./utils/api";
 
 function App() {
@@ -57,7 +57,7 @@ function App() {
   return (
     <>
       <AppHeader />
-      <AppMain
+      <Main
         onEditAvatarClick={handleEditAvatarClick}
         onEditProfileClick={handleEditProfileClick}
         onAddPlaceClick={handleAddPlaceClick}
@@ -65,7 +65,7 @@ function App() {
         onCardClick={handleCardClick} // Pasar handleCardClick al componente Main
         Cards={cards} // Pasar el array de cards al componente Main
       />
-      <AppFooter />
+      <Footer />
       {/*Popup Profile */}
       <PopupWithForm
         name="profile"
@@ -158,11 +158,11 @@ function App() {
       </PopupWithForm>
       {/*Popup Open Image */}
       {selectedCard && (
-        <PopupWithImage
+        <ImagePopup
           card={selectedCard}
           isOpen={isImagePopupOpen}
           onClose={closeAllPopups}
-        ></PopupWithImage>
+        ></ImagePopup>
       )}
       <template className="template">
         <li className="card">
