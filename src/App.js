@@ -78,8 +78,8 @@ function App() {
           name="name"
           className="form__input"
           placeholder="Nombre"
-          minlength="2"
-          maxlength="40"
+          minLength="2"
+          maxLength="40"
           required
         />
         <span className="form__input-error form__input-error_type_name"></span>
@@ -89,8 +89,8 @@ function App() {
           name="about"
           className="form__input"
           placeholder="Acerca de mí"
-          minlength="2"
-          maxlength="200"
+          minLength="2"
+          maxLength="200"
           required
         />
         <span className="form__input-error form__input-error_type_about"></span>
@@ -108,8 +108,8 @@ function App() {
           name="title"
           className="form__input"
           placeholder="Titulo"
-          minlength="2"
-          maxlength="30"
+          minLength="2"
+          maxLength="30"
           required
         />
         <span className="form__input-error form__input-error_type_title">
@@ -121,7 +121,7 @@ function App() {
           name="link"
           className="form__input"
           placeholder="Enlace de la imagen"
-          minlength="2"
+          minLength="2"
           required
         />
         <span className="form__input-error form__input-error_type_link"></span>
@@ -139,7 +139,7 @@ function App() {
           name="url"
           className="form__input"
           placeholder="Enlace de la imagen de perfil"
-          minlength="2"
+          minLength="2"
           required
         />
         <span className="form__input-error form__input-error_type_url"></span>
