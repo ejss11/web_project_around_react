@@ -19,7 +19,7 @@
   z-index: 10;
   pointer-events: none;
 }
-.popup_open {
+.popup_is-opened {
   opacity: 1;
   visibility: visible;
   pointer-events: all;
