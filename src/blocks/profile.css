@@ -28,9 +28,16 @@
   padding: 0;
 }
 
-.profile__image-container:hover .profile__overlay,
-.profile__image-container:hover .profile__edit-avatar {
+.profile__image-container:hover .profile__overlay {
   display: block; /* Muestra el overlay y el botón al pasar el cursor */
+  height: 9%;
+  width: 14%;
+  top: 40px;
+  left: 0px;
+}
+
+.profile__image-container:hover .profile__edit-avatar {
+  display: block;
 }
 .profile__heading {
   width: 414px;
@@ -127,6 +134,13 @@
     background-color: rgba(0, 0, 0, 0.5);
     border-radius: 50%;
   }
+  .profile__image-container:hover .profile__overlay {
+    display: block; /* Muestra el overlay y el botón al pasar el cursor */
+    height: 8%;
+    width: 17%;
+    top: -1px;
+    left: 0px;
+  }
 
   .profile__edit-avatar {
     display: none;
@@ -191,6 +205,15 @@
     background-color: rgba(0, 0, 0, 0.5);
     border-radius: 50%;
   }
+
+  .profile__image-container:hover .profile__overlay {
+    display: block; /* Muestra el overlay y el botón al pasar el cursor */
+    height: 8%;
+    width: 17%;
+    top: -1px;
+    left: 0px;
+  }
+
   .profile__heading-name {
     width: calc(100% - -65px);
     display: flex;
@@ -217,7 +240,7 @@
   .profile__overlay {
     background-color: rgba(0, 0, 0, 0.5);
     border-radius: 50%;
-    height: 3%;
+    height: 4%;
     left: 31%;
     position: absolute;
     top: 0;

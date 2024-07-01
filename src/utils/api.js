@@ -9,7 +9,7 @@ class Api {
 
   _getHeaders() {
     return {
-      authorization: this._token,
+      Authorization: this._token,
       "Content-Type": "application/json",
     };
   }
@@ -40,47 +40,43 @@ class Api {
   }
 
   editProfile(userData) {
-    return fetch(`${this._address}/users/me`, {
+    return fetch(`${this._address}${this._groupId}/users/me`, {
       method: "PATCH",
       headers: this._getHeaders(),
-      body: JSON.stringify(userData),
+      body: JSON.stringify({
+        name: userData.nameUser,
+        about: userData.about,
+      }),
     }).then(this._checkResponse);
   }
 
   addNewCard(cardData) {
-    return fetch(`${this._address}/cards`, {
+    return fetch(`${this._address}${this._groupId}/cards`, {
       method: "POST",
       headers: this._getHeaders(),
       body: JSON.stringify({
-        name: cardData.title,
+        name: cardData.name,
         link: cardData.link,
       }),
     }).then(this._checkResponse);
   }
 
   async deleteCard(cardId) {
-    return fetch(`${this._address}/cards/${cardId}`, {
+    return fetch(`${this._address}${this._groupId}/cards/${cardId}`, {
       method: "DELETE",
       headers: this._getHeaders(),
     }).then(this._checkResponse);
   }
 
-  removeLike(cardId) {
-    return fetch(`${this._address}/cards/likes/${cardId}`, {
-      method: "DELETE",
-      headers: this._getHeaders(),
-    }).then(this._checkResponse);
-  }
-
-  addLike(cardId) {
-    return fetch(`${this._address}/cards/likes/${cardId}`, {
-      method: "PUT",
+  changeLikeCardStatus(cardId, isLiked) {
+    return fetch(`${this._address}${this._groupId}/cards/likes/${cardId}`, {
+      method: isLiked ? "PUT" : "DELETE",
       headers: this._getHeaders(),
     }).then(this._checkResponse);
   }
 
   updateAvatar(userData) {
-    return fetch(`${this._address}/users/me/avatar/`, {
+    return fetch(`${this._address}${this._groupId}/users/me/avatar/`, {
       method: "PATCH",
       headers: this._getHeaders(),
       body: JSON.stringify({ avatar: userData }),

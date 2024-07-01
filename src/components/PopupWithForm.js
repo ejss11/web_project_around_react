@@ -1,6 +1,7 @@
 import React from "react";
 import "../blocks/popup.css";
-function PopupWithForm({ name, title, children, isOpen, onClose }) {
+
+function PopupWithForm({ name, title, children, isOpen, onClose, onSubmit }) {
   return (
     <div
       className={`popup popup_content_${name} ${
@@ -16,11 +17,13 @@ function PopupWithForm({ name, title, children, isOpen, onClose }) {
         ></button>
         <div className="popup__body">
           <h2 className="popup__title">{title}</h2>
-          <form className="form" name={name}>
+          <form
+            className="form"
+            name={`${name}-form`}
+            onSubmit={onSubmit}
+            noValidate
+          >
             {children}
-            <button type="submit" className="form__submit" disabled>
-              Guardar
-            </button>
           </form>
         </div>
       </div>

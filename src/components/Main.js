@@ -1,38 +1,35 @@
-import React, { useState, useEffect } from "react";
-import api from "../utils/api";
-import Card from "./Card";
+import React, { useContext } from "react";
+
 import "../blocks/content.css";
+import "../blocks/profile.css";
+import CurrentUserContext from "../contexts/CurrentUserContext";
 
 function Main({
   onEditAvatarClick,
   onEditProfileClick,
   onAddPlaceClick,
-  onCardClick,
-  Cards,
+  children,
 }) {
-  const [userName, setUserName] = useState("");
-  const [userDescription, setUserDescription] = useState("");
-  const [userAvatar, setUserAvatar] = useState("");
+  const currentUser = useContext(CurrentUserContext);
 
-  useEffect(() => {
+  /*
+  function handleCardDelete(card) {
     api
-      .getUserInfo()
-      .then((userData) => {
-        setUserName(userData.name);
-        setUserDescription(userData.about);
-        setUserAvatar(userData.avatar);
+      .deleteCard(card._id)
+      .then(() => {
+        setCards((state) => state.filter((c) => c._id !== card._id));
       })
-      .catch((err) => {
-        console.error(err);
-      });
-  });
+      .catch((err) => console.log(err));
+  } */
+
   return (
     <main className="content">
       <section className="profile">
         <div className="profile__image-container">
-          <div
+          <img
+            src={currentUser.avatar}
             className="profile__image"
-            style={{ backgroundImage: `url(${userAvatar})` }}
+            alt={`Perfil : ${currentUser.name}`}
           />
           <div className="profile__overlay">
             <span
@@ -44,27 +41,21 @@ function Main({
 
         <div className="profile__heading">
           <div className="profile__heading-name">
-            <h1 className="profile__heading-title">{userName}</h1>
+            <h1 className="profile__heading-title">{currentUser.name}</h1>
             <button
               className="profile__heading-edit"
               onClick={onEditProfileClick}
             ></button>
           </div>
 
-          <h2 className="profile__heading-subtitle">{userDescription}</h2>
+          <h2 className="profile__heading-subtitle">{currentUser.about}</h2>
         </div>
         <button
           className="profile__heading-add"
           onClick={onAddPlaceClick}
         ></button>
       </section>
-      <section className="cards">
-        <ul className="cards__public">
-          {Cards.map((card) => (
-            <Card key={card._id} cardData={card} onCardClick={onCardClick} />
-          ))}
-        </ul>
-      </section>
+      <section className="cards">{children}</section>
     </main>
   );
 }

@@ -102,10 +102,11 @@
   opacity: 0.3;
 }
 
-.form__submit:disabled {
+.form__submit_disabled {
   background-color: white;
   color: #cccccc;
   border: 1px solid lightgrey;
+  cursor: not-allowed;
 }
 
 .popup__close-btn {
