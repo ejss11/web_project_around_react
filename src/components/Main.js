@@ -1,26 +1,19 @@
 import React, { useContext } from "react";
-
 import "../blocks/content.css";
 import "../blocks/profile.css";
+import Card from "./Card";
 import CurrentUserContext from "../contexts/CurrentUserContext";
 
 function Main({
   onEditAvatarClick,
   onEditProfileClick,
   onAddPlaceClick,
-  children,
+  onCardDelete,
+  onCardLike,
+  onCardClick,
+  cards,
 }) {
   const currentUser = useContext(CurrentUserContext);
-
-  /*
-  function handleCardDelete(card) {
-    api
-      .deleteCard(card._id)
-      .then(() => {
-        setCards((state) => state.filter((c) => c._id !== card._id));
-      })
-      .catch((err) => console.log(err));
-  } */
 
   return (
     <main className="content">
@@ -55,7 +48,19 @@ function Main({
           onClick={onAddPlaceClick}
         ></button>
       </section>
-      <section className="cards">{children}</section>
+      <section className="cards">
+        <ul className="cards__public">
+          {cards.map((card) => (
+            <Card
+              key={card._id}
+              cardData={card}
+              onCardClick={onCardClick}
+              onCardLike={onCardLike}
+              onCardDelete={onCardDelete}
+            />
+          ))}
+        </ul>
+      </section>
     </main>
   );
 }

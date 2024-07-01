@@ -5,7 +5,6 @@ import Footer from "./Footer";
 import ImagePopup from "./ImagePopup";
 import Main from "./Main";
 import api from "../utils/api";
-import Card from "./Card";
 import CurrentUserContext from "../contexts/CurrentUserContext";
 import EditProfilePopup from "./EditProfilePopup";
 import EditAvatarPopup from "./EditAvatarPopup";
@@ -32,7 +31,7 @@ function App() {
         setCards(data);
       })
       .catch((err) => {
-        console.error(err);
+        console.error(`Error Obtener card list: ${err}`);
       });
 
     api
@@ -41,7 +40,7 @@ function App() {
         setCurrentUser(userInfo);
       })
       .catch((err) => {
-        console.log(err);
+        console.log(`Error Obtener user info: ${err}`);
       });
   }, []);
 
@@ -52,7 +51,7 @@ function App() {
         setCurrentUser(updatedUser);
         closeAllPopups();
       })
-      .catch((err) => console.log(err));
+      .catch((err) => console.log(`Error Editar info Perfil: ${err}`));
   }
 
   function handleUpdateAvatar(avatarLink) {
@@ -120,18 +119,8 @@ function App() {
           state.map((c) => (c._id === card._id ? newCard : c))
         );
       })
-      .catch((err) => console.log(err));
+      .catch((err) => console.log(`Error Like card: ${err}`));
   }
-
-  const handleEditAvatarClick = () => {
-    setIsEditAvatarPopupOpen(true);
-  };
-  const handleEditProfileClick = () => {
-    setIsEditProfilePopupOpen(true);
-  };
-  const handleAddPlaceClick = () => {
-    setIsAddPlacePopupOpen(true);
-  };
 
   const closeAllPopups = () => {
     setIsAddPlacePopupOpen(false);
@@ -152,22 +141,14 @@ function App() {
       <CurrentUserContext.Provider value={currentUser}>
         <AppHeader />
         <Main
-          onEditAvatarClick={handleEditAvatarClick}
-          onEditProfileClick={handleEditProfileClick}
-          onAddPlaceClick={handleAddPlaceClick}
-        >
-          <ul className="cards__public">
-            {cards.map((card) => (
-              <Card
-                key={card._id}
-                cardData={card}
-                onCardClick={handleCardClick}
-                onCardLike={handleCardLike}
-                onCardDelete={handleCardDelete}
-              />
-            ))}
-          </ul>
-        </Main>
+          cards={cards}
+          onCardLike={handleCardLike}
+          onCardDelete={handleCardDelete}
+          onCardClick={handleCardClick}
+          onEditAvatarClick={() => setIsEditAvatarPopupOpen(true)}
+          onEditProfileClick={() => setIsEditProfilePopupOpen(true)}
+          onAddPlaceClick={() => setIsAddPlacePopupOpen(true)}
+        ></Main>
         <Footer />
         {/*Popup Profile */}
         <EditProfilePopup
