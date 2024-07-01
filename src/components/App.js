@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import "../styles/index.css";
-import AppHeader from "./AppHeader";
+import "../index.css";
+import AppHeader from "./Header";
 import Footer from "./Footer";
 import ImagePopup from "./ImagePopup";
 import Main from "./Main";
