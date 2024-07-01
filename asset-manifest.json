@@ -1,18 +1,19 @@
 {
   "files": {
-    "main.css": "/around-react_es/static/css/main.df082726.css",
-    "main.js": "/around-react_es/static/js/main.80eb5667.js",
+    "main.css": "/around-react_es/static/css/main.52b69042.css",
+    "main.js": "/around-react_es/static/js/main.f8256df2.js",
     "static/js/453.adcd38db.chunk.js": "/around-react_es/static/js/453.adcd38db.chunk.js",
+    "static/media/Inter-VariableFont_slnt_wght.ttf": "/around-react_es/static/media/Inter-VariableFont_slnt_wght.853e01975d2783d9fa29.ttf",
     "static/media/image_profile.jpg": "/around-react_es/static/media/image_profile.c15cb08ab8ecfaba54c6.jpg",
     "static/media/like.svg": "/around-react_es/static/media/like.3826c074a1b94b101e38.svg",
     "index.html": "/around-react_es/index.html",
     "static/media/delete.svg": "/around-react_es/static/media/delete.8cb59aa98088a1653f62.svg",
-    "main.df082726.css.map": "/around-react_es/static/css/main.df082726.css.map",
-    "main.80eb5667.js.map": "/around-react_es/static/js/main.80eb5667.js.map",
+    "main.52b69042.css.map": "/around-react_es/static/css/main.52b69042.css.map",
+    "main.f8256df2.js.map": "/around-react_es/static/js/main.f8256df2.js.map",
     "453.adcd38db.chunk.js.map": "/around-react_es/static/js/453.adcd38db.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.df082726.css",
-    "static/js/main.80eb5667.js"
+    "static/css/main.52b69042.css",
+    "static/js/main.f8256df2.js"
   ]
 }
