@@ -51,17 +51,17 @@
 
 @media screen and (max-width: 320px) {
   .header {
-    width: calc(100% - 10px);
-    height: 100%;
+    width: 100%;
+    height: auto;
     margin: 0;
   }
   .header__logo {
-    width: calc(100% / 3);
-    height: 100%;
-    margin: 0;
+    width: calc(33.33%);
+    height: auto;
+    margin: 10px 20px;
   }
   .header__line {
     width: 100%;
-    margin: 5px 0 5px 0;
+    margin: 5px 0;
   }
 }

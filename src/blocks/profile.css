@@ -10,7 +10,7 @@
   top: 40px;
   left: 0;
   width: 13.7%;
-  height: 6%;
+  height: 122px;
   background-color: rgba(0, 0, 0, 0.5);
   border-radius: 50%;
 }
@@ -28,17 +28,11 @@
   padding: 0;
 }
 
-.profile__image-container:hover .profile__overlay {
+.profile__image-container:hover .profile__overlay,
+.profile__image-container:hover .profile__edit-avatar {
   display: block; /* Muestra el overlay y el botón al pasar el cursor */
-  height: 9%;
-  width: 14%;
-  top: 40px;
-  left: 0px;
 }
 
-.profile__image-container:hover .profile__edit-avatar {
-  display: block;
-}
 .profile__heading {
   width: 414px;
   height: 77px;
@@ -60,7 +54,7 @@
 }
 .profile__heading-title {
   width: 373px;
-  height: 43px;
+  height: 50px;
   margin: 0;
   font-family: "inter";
   font-weight: 500;
@@ -127,19 +121,17 @@
   }
   .profile__overlay {
     position: absolute;
-    top: 3px;
-    left: 5px;
-    width: 14%;
-    height: 5%;
+    top: 0;
+    left: 3px;
+    width: 15%;
+    height: 122px;
     background-color: rgba(0, 0, 0, 0.5);
     border-radius: 50%;
   }
-  .profile__image-container:hover .profile__overlay {
+
+  .profile__image-container:hover .profile__overlay,
+  .profile__image-container:hover .profile__edit-avatar {
     display: block; /* Muestra el overlay y el botón al pasar el cursor */
-    height: 8%;
-    width: 17%;
-    top: -1px;
-    left: 0px;
   }
 
   .profile__edit-avatar {
@@ -187,31 +179,30 @@
 
 @media screen and (max-width: 768px) {
   .profile {
-    width: calc(100% - 20px);
+    display: flex;
+    flex-direction: row;
+    width: 100%;
   }
   .profile__image-container {
-    width: calc(100% - 541px);
+    width: 25%;
   }
   .profile__image {
     width: calc(100% - 5px);
   }
 
-  .profile__overlay {
-    position: absolute;
-    top: 5px;
-    left: 0;
-    width: 16.7%;
-    height: 5%;
-    background-color: rgba(0, 0, 0, 0.5);
-    border-radius: 50%;
+  .profile__image-container:hover .profile__overlay,
+  .profile__image-container:hover .profile__edit-avatar {
+    display: block; /* Muestra el overlay y el botón al pasar el cursor */
   }
 
-  .profile__image-container:hover .profile__overlay {
-    display: block; /* Muestra el overlay y el botón al pasar el cursor */
-    height: 8%;
-    width: 17%;
-    top: -1px;
-    left: 0px;
+  .profile__overlay {
+    position: absolute;
+    top: 0;
+    left: 3px;
+    width: 16.7%;
+    height: 121px;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 50%;
   }
 
   .profile__heading-name {
@@ -228,42 +219,44 @@
     opacity: 0.5;
   }
 }
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 767px) and (min-width: 320px) {
   .profile {
     display: flex;
     flex-direction: column;
-    width: calc(100% - 10px);
-
-    height: 100%;
+    width: 100%;
     align-items: center;
+    margin: 0 auto;
   }
   .profile__overlay {
     background-color: rgba(0, 0, 0, 0.5);
     border-radius: 50%;
-    height: 4%;
-    left: 31%;
     position: absolute;
     top: 0;
-    width: 36.7%;
+    left: 0;
+    height: 121px;
+    width: 120px;
+  }
+
+  .profile__image-container {
+    width: 120px;
   }
 
   .profile__image-container:hover .profile__overlay,
   .profile__image-container:hover .profile__edit-avatar {
     display: block; /* Muestra el overlay y el botón al pasar el cursor */
-  }
-  .profile__image-container {
-    width: 120px;
+    left: auto;
   }
   .profile__heading-name {
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: space-around;
-    width: calc(50% - -120px);
+    justify-content: space-between;
+    width: auto;
+    text-align: center;
   }
   .profile__image {
     align-items: center;
-    width: calc(100% - 5px);
+    width: 100%;
     display: flex;
     background-image: url(../images/image_profile.jpg);
     background-size: cover;
@@ -285,13 +278,19 @@
     display: flex;
     justify-content: center;
   }
+
+  .profile__heading-subtitle {
+    display: flex;
+    justify-content: center;
+    padding-right: 43px;
+  }
   .profile__heading-add {
     width: calc(100% - 5px);
     margin: 17px 0 0 0;
   }
   .profile__heading-edit {
     width: 24px;
-    margin: 15px;
+    margin: 9px 9px 9px 15px;
   }
   .profile__heading-add:focus {
     opacity: 0.3;

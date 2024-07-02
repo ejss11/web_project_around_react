@@ -21,26 +21,17 @@ function App() {
   const [cards, setCards] = useState([]);
   const [selectedCard, setSelectedCard] = useState(null);
   const [currentUser, setCurrentUser] = useState({});
-  const [isLoading, setIsLoanding] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const [cardToDelete, setCardToDelete] = useState(null);
 
   useEffect(() => {
-    api
-      .getInitialCards()
-      .then((data) => {
-        setCards(data);
-      })
-      .catch((err) => {
-        console.error(`Error Obtener card list: ${err}`);
-      });
-
-    api
-      .getUserInfo()
-      .then((userInfo) => {
+    Promise.all([api.getInitialCards(), api.getUserInfo()])
+      .then(([cardsData, userInfo]) => {
+        setCards(cardsData);
         setCurrentUser(userInfo);
       })
       .catch((err) => {
-        console.log(`Error Obtener user info: ${err}`);
+        console.error(`Error : ${err}`);
       });
   }, []);
 
@@ -55,7 +46,7 @@ function App() {
   }
 
   function handleUpdateAvatar(avatarLink) {
-    setIsLoanding(true);
+    setIsLoading(true);
     api
       .updateAvatar(avatarLink)
       .then((updateUser) => {
@@ -66,7 +57,7 @@ function App() {
         console.error(`Error Updating avatar: ${err}`);
       })
       .finally(() => {
-        setIsLoanding(false);
+        setIsLoading(false);
       });
   }
 
@@ -77,7 +68,7 @@ function App() {
 
   function handleConfirmDelete() {
     if (cardToDelete) {
-      setIsLoanding(true);
+      setIsLoading(true);
       api
         .deleteCard(cardToDelete._id)
         .then(() => {
@@ -88,13 +79,13 @@ function App() {
           console.error(`Error Eliminar card: ${err}`);
         })
         .finally(() => {
-          setIsLoanding(false);
+          setIsLoading(false);
         });
     }
   }
 
   function handleAddPlaceSubmit(cardData) {
-    setIsLoanding(true);
+    setIsLoading(true);
     api
       .addNewCard(cardData)
       .then((newCard) => {
@@ -105,7 +96,7 @@ function App() {
         console.error(`Error Agregar Nueva card: ${err}`);
       })
       .finally(() => {
-        setIsLoanding(false);
+        setIsLoading(false);
       });
   }
 

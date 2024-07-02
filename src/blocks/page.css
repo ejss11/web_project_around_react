@@ -1,13 +1,14 @@
 /* Estilo del bloque de Page */
+body,
 .page {
   display: flex;
   align-items: center;
   min-width: 320px;
   max-width: 1280px;
-  margin: 45px 199px 0 199px;
+  margin: 45px 199px 0 148px;
   height: auto;
   background-color: #000000;
-
+  min-height: 100vh;
   flex-direction: column;
   color: #fff;
 }
@@ -15,7 +16,7 @@
   .page {
     width: 880px;
     height: 100%;
-    margin: 15px 0 0 0;
+    margin: 23px 0 0 0;
     overflow-x: hidden;
   }
 }
