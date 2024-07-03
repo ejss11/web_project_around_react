@@ -14,7 +14,6 @@ body,
 }
 @media screen and (max-width: 880px) {
   .page {
-    width: 880px;
     height: 100%;
     margin: 23px 0 0 0;
     overflow-x: hidden;
@@ -22,7 +21,6 @@ body,
 }
 @media screen and (max-width: 768px) {
   .page {
-    width: 768px;
     height: 100%;
     margin: 0 auto;
     overflow-x: hidden;

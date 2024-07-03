@@ -1,9 +1,10 @@
 .footer {
   display: flex;
   flex-direction: column;
-  width: 882px;
   height: 132px;
   margin: 66px 0 88px 0;
+  align-items: center;
+  justify-content: center;
 }
 
 .footer__copyright {
@@ -20,8 +21,8 @@
 @media screen and (max-width: 880px) {
   .footer {
     height: auto;
-    margin: 66px;
-    position: absolute;
+    text-align: center;
+    position: relative;
   }
 }
 
