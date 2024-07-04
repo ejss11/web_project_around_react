@@ -282,10 +282,11 @@
   .profile__heading-subtitle {
     display: flex;
     justify-content: center;
-    padding-right: 43px;
+    width: auto;
+    max-width: 90vw;
   }
   .profile__heading-add {
-    width: calc(100% - 5px);
+    width: calc(90% - 5px);
     margin: 17px 0 0 0;
   }
   .profile__heading-edit {

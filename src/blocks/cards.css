@@ -38,6 +38,7 @@
   height: 282px;
   list-style-type: none;
   border-radius: 10px 10px 0 0;
+  object-fit: cover;
 }
 .card__image-delete {
   width: 18px;
@@ -188,6 +189,8 @@
     flex-direction: column;
     justify-content: center;
     gap: calc(18px - 0.5em);
+    align-items: center;
+    width: 100vw;
   }
 
   .card__image-delete:hover {
